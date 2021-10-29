@@ -1,0 +1,107 @@
+body {
+    background-image: url("assets/images/bg.png");
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+    align-items: center;
+}
+
+.menu {
+    position: fixed;
+    top: 0px;
+    right: 0px;
+    background-color: rgb(148, 60, 60);
+    text-align: center;
+    padding: 6px;
+    margin-right: 325px;
+    
+}
+.menu a{
+    color: black;
+    text-decoration: none;
+}
+.menu a:hover{
+    color: rosybrown;
+    text-decoration: none;
+}
+ul {
+    list-style: none;
+    color: seashell;
+}
+
+.banner {
+    position: relative;
+    top: 30px
+}
+
+.site {
+    background-color: seashell;
+    color: rgb(148, 60, 60);
+}
+
+h1 {
+    position: relative;
+    top: 20px;
+}
+
+a {
+    color: black;
+}
+.bild {
+    width: 260px;
+}
+
+.platz {
+    margin-top: 50px;
+}
+
+.icon {
+    height: 40px;
+    margin: 10px;
+}
+
+.icon:hover {
+    height: 60px;
+    margin: 10px;
+}
+
+.formular {
+    margin-left: 325px;
+}
+
+.feld {
+    background-color: silver;
+    width: 200px;
+    text-align: left;
+    color: white;
+    padding: 2px;
+}
+
+.nachricht {
+    background-color: silver;
+    width: 200px;
+    text-align: left;
+    color: white;
+    padding: 2px;
+    padding-bottom: 15px;
+    padding-right: 130px;
+}
+
+.klein {
+    font-size: 10px;
+    color: silver;
+    text-align: left;
+}
+
+.senden {
+        background-color: silver;
+        width: 100px;
+        text-align: center;
+        color: white;
+        padding: 2px;
+}
+
+footer {
+    margin-top: 600px;
+    margin-bottom: -10px;
+    background-color: rosybrown;
+}
