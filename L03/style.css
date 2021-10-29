@@ -11,8 +11,9 @@ body {
     right: 0px;
     background-color: rgb(148, 60, 60);
     text-align: center;
-    padding: 6px;
-    margin-right: 325px;
+    padding-top: 6px;
+    padding-bottom: 6px;
+    margin-right: 310px;
     
 }
 .menu a{
@@ -35,6 +36,7 @@ ul {
 
 .site {
     background-color: seashell;
+    padding: 7px;
     color: rgb(148, 60, 60);
 }
 
