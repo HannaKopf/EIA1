@@ -66,8 +66,13 @@ a {
     margin: 10px;
 }
 
+.about {
+    margin-left: 290px;
+    width: 800px;
+}
+
 .formular {
-    margin-left: 325px;
+    align-items: center;
 }
 
 .feld {
@@ -91,15 +96,15 @@ a {
 .klein {
     font-size: 10px;
     color: silver;
-    text-align: left;
+    text-align: center;
 }
 
 .senden {
         background-color: silver;
         width: 100px;
         text-align: center;
-        color: white;
         padding: 2px;
+        color: silver;
 }
 
 footer {
