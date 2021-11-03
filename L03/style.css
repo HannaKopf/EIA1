@@ -1,80 +1,113 @@
 body {
     background-image: url("assets/images/bg.png");
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: sans-serif;
     text-align: center;
     align-items: center;
+    width: 800px;
+    margin:auto;
 }
 
 .menu {
     position: fixed;
     top: 0px;
     right: 0px;
-    background-color: rgb(148, 60, 60);
+    background-color: black;
     text-align: center;
     padding-top: 6px;
     padding-bottom: 6px;
     margin-right: 310px;
+    z-index: 4;
     
 }
 .menu a{
-    color: black;
     text-decoration: none;
+    color: white;
 }
 .menu a:hover{
-    color: rosybrown;
+    background-color: silver;
     text-decoration: none;
+    padding: 7px;
 }
 ul {
     list-style: none;
-    color: seashell;
+}
+.site {
+    padding: 7px;
+    background-color: rgb(184, 49, 8);
+
 }
 
 .banner {
+    background-color: rgb(184, 49, 8);
+    position: absolute;
+    width: 800px;
+    height: 800px;
+    margin-top: -750px;
+    text-align: center;
+    border-radius: 800px;
+    z-index: 1;
+}
+.uberschrift {
     position: relative;
-    top: 30px
+    margin-top: 50px;
+    font-size: 150px;
+    font-weight: bold;
+    color: white;
+    z-index: 2;
+}
+.titel {
+    position:relative;
+    font-size: 70px;
+    margin-top: -100px;
+    z-index: 2;
+    margin-right: -200px;
+    color: white;
+}
+.text {
+    position: relative;
+    z-index: 2;
+    text-align: left;
+    margin-left: 310px;
+    margin-top: -50px;
+    color: white;
+
+}
+.icon {
+    z-index: 2;
+    position: absolute;
+    margin-left: -200px;
+    margin-top: -120px;
+    width: 50px;
+}
+.icon:hover {
+    width: 60px;
 }
 
-.site {
-    background-color: seashell;
-    padding: 7px;
-    color: rgb(148, 60, 60);
+main {
+    margin-top: 20px;
+    text-align: center;
 }
-
 h1 {
     position: relative;
     top: 20px;
 }
-
+h2 {
+    font-size: 50;
+}
+h3 {
+    color: rgb(184, 49, 8);
+    font-size: 25px;
+    text-align: left;
+}
 a {
     color: black;
 }
-.bild {
-    width: 260px;
-}
-
-.platz {
-    margin-top: 50px;
-}
-
-.icon {
-    height: 40px;
-    margin: 10px;
-}
-
-.icon:hover {
-    height: 60px;
-    margin: 10px;
-}
-
-.about {
-    margin-left: 290px;
-    width: 800px;
-}
-
 .formular {
-    align-items: center;
+    position:absolute;
+    margin-left: 0px;
+    align-items: left;
+    text-align: left;
 }
-
 .feld {
     background-color: silver;
     width: 200px;
@@ -82,7 +115,6 @@ a {
     color: white;
     padding: 2px;
 }
-
 .nachricht {
     background-color: silver;
     width: 200px;
@@ -92,23 +124,13 @@ a {
     padding-bottom: 15px;
     padding-right: 130px;
 }
-
 .klein {
     font-size: 10px;
     color: silver;
-    text-align: center;
 }
-
 .senden {
         background-color: silver;
         width: 100px;
-        text-align: center;
         padding: 2px;
         color: silver;
-}
-
-footer {
-    margin-top: 100px;
-    margin-bottom: -10px;
-    background-color: rosybrown;
 }
