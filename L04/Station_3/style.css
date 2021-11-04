@@ -1,0 +1,82 @@
+body {
+    background-image: url("images/bg.png");
+}
+
+.box {
+    position: fixed;
+    left: 28%;
+    top:28%;
+}
+
+.wrapper {
+    position: relative;
+    float:inline-start;
+}
+
+.stern1 {
+    position: absolute;
+    left: 60px;
+    bottom: 50px;
+}
+.stern1_ {
+    position: absolute;
+    left: 60px;
+    bottom: 50px;
+    opacity: 0;
+}
+.stern1_:hover {
+    opacity: 100;
+}
+
+.stern2 {
+    position: absolute;
+    left: 200px;
+    bottom: 150px;
+}
+.stern2_ {
+    position: absolute;
+    left: 200px;
+    bottom: 150px;
+    opacity: 0;
+}
+.stern2_:hover {
+    opacity: 100;
+}
+
+.stern3 {
+    position: absolute;
+    left: 350px;
+    bottom: 100px;
+}
+.stern3_ {
+    position: absolute;
+    left: 350px;
+    bottom: 100px;
+    opacity: 0;
+}
+.stern3_:hover {
+    opacity: 100;
+}
+
+.stern4 {
+    position: absolute;
+    left: 450px;
+    bottom: 200px;
+}
+.stern4_ {
+    position: absolute;
+    left: 450px;
+    bottom: 200px;
+    opacity: 0;
+}
+.stern4_:hover {
+    opacity: 100;
+}
+
+h1 {
+    color: white;
+    position:absolute;
+    top: 20px;
+    left: 60px;
+    width: 500px;
+}

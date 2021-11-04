@@ -1,0 +1,58 @@
+body {
+    background-image: url("images/bg.png");
+}
+
+.box {
+    position: fixed;
+    left: 28%;
+    top:28%;
+}
+
+.wrapper {
+    position: relative;
+    float:inline-start;
+    z-index: 1;
+}
+
+.penguin {
+    position:absolute;
+    right: -10px;
+    bottom: -10px;
+    z-index: 3;
+}
+
+.busch {
+    position: absolute;
+    left: -60px;
+    top: -70px;
+    z-index: 3;
+}
+
+.text {
+    position:absolute;
+    margin-bottom: 10px;
+    text-align: left;
+    z-index: 2;
+}
+
+div {
+    position: absolute;
+}
+
+h1 {
+    color: white;
+    position:absolute;
+    top: 50px;
+    left: 60px;
+    width: 500px;
+    z-index: 2;
+}
+
+p {
+    color: white;
+    position: absolute;
+    top: 160px;
+    left: 60px;
+    width: 500px;
+    z-index: 2;
+}
