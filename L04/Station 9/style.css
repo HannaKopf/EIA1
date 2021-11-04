@@ -1,0 +1,68 @@
+body {
+    background-image: url("images/bg.png");
+}
+
+.box {
+    position: fixed;
+    left: 28%;
+    top:28%;
+}
+.wrapper {
+    position: relative;
+    float:inline-start;
+}
+.band {
+    position:absolute;
+    right: 0px;
+    bottom: 0px;
+
+}
+
+.text {
+    position:absolute;
+    margin-bottom: 10px;
+    text-align: left;
+}
+h1 {
+    color: white;
+    position:absolute;
+    top: 40px;
+    left: 60px;
+    width: 500px;
+}
+p {
+    color: white;
+    position: absolute;
+    top: 140px;
+    left: 60px;
+    width: 500px;
+}
+
+.schnee1 {
+    animation: fall 3s infinite ease-in-out;
+    position:absolute;
+    left: 100px;
+    top: 0px;
+}
+.schnee2 {
+    animation: fall 3.5s 0.3s infinite ease-in-out;
+    position:absolute;
+    left: 400px;
+    top: 0px;
+}
+.schnee3 {
+    animation: fall 4s 0.5s infinite ease-in-out;
+    position:absolute;
+    left: 300px;
+    top: 0px;
+}
+
+@keyframes fall {
+    from {
+        margin-top: 0px;
+    }
+
+    to {
+        margin-top: 350px;
+    }
+}
