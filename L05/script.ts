@@ -1,59 +1,60 @@
+/* Eingabe aller Variablen*/
 /* Variabeln Africa */
-var africa_08 = 1028;
-var africa_18 = 1235.5;
+var africa_08: number = 1028;
+var africa_18: number = 1235.5;
 
 /* Variabeln South America */
-var s_america_08 = 1132.6;
-var s_america_18 = 1261.5;
+var s_america_08: number = 1132.6;
+var s_america_18: number = 1261.5;
 
 /* Variabeln Europa */
-var europa_08 = 4965.7;
-var europa_18 = 4209.3;
+var europa_08: number = 4965.7;
+var europa_18: number = 4209.3;
 
-/* Variabeln North America */
-var n_america_08 = 6600.4;
-var n_america_18 = 6035.6;
+/* Variabeln North America */ 
+var n_america_08: number = 6600.4;
+var n_america_18: number = 6035.6;
 
 /* Variabeln Asia */
-var asia_08 = 12954.7;
-var asia_18 = 416274.1;
+var asia_08: number = 12954.7;
+var asia_18: number = 416274.1;
 
 /* Variabeln Australia */
-var australia_08 = 1993;
-var australia_18 = 2100.5;
+var australia_08: number = 1993;
+var australia_18: number = 2100.5;
 
 /* Rechnung Welt */
-var welt_18 = africa_18 + europa_18 + s_america_18 + n_america_18 + asia_18 + australia_18
+var welt_18: number = africa_18 + europa_18 + s_america_18 + n_america_18 + asia_18 + australia_18
 
 /* Rechnung Africa */
-var africa_welt = africa_18 / welt_18 * 100;
-var africa_africa = (africa_18 / africa_08 - 1) * 100;
-var africa_africa_co2 = africa_18 - africa_08;
+var africa_welt: number = africa_18 / welt_18 * 100;
+var africa_africa: number = (africa_18 / africa_08 - 1) * 100;
+var africa_africa_co2: number = africa_18 - africa_08;
 
 /* Rechnung South America */
-var s_america_welt = s_america_18 / welt_18 * 100;
-var s_america_s_america = (s_america_18 / s_america_08 - 1) * 100;
-var s_america_s_america_co2 = s_america_18 - s_america_08;
+var s_america_welt: number = s_america_18 / welt_18 * 100;
+var s_america_s_america: number = (s_america_18 / s_america_08 - 1) * 100;
+var s_america_s_america_co2: number = s_america_18 - s_america_08;
 
 /* Rechnung Europa */
-var europa_welt = europa_18 / welt_18 * 100;
-var europa_europa = (europa_18 / europa_08 - 1) * 100;
-var europa_europa_co2 = europa_18 - europa_08;
+var europa_welt: number = europa_18 / welt_18 * 100;
+var europa_europa: number = (europa_18 / europa_08 - 1) * 100;
+var europa_europa_co2: number = europa_18 - europa_08;
 
 /* Rechnung North America */
-var n_america_welt = n_america_18 / welt_18 * 100;
-var n_america_n_america = (n_america_18 / n_america_08 - 1) * 100;
-var n_america_n_america_co2 = n_america_18 - n_america_08;
+var n_america_welt: number = n_america_18 / welt_18 * 100;
+var n_america_n_america: number = (n_america_18 / n_america_08 - 1) * 100;
+var n_america_n_america_co2: number = n_america_18 - n_america_08;
 
 /* Rechnung Asia */
-var asia_welt = asia_18 / welt_18 * 100;
-var asia_asia = (asia_18 / asia_08 - 1) * 100;
-var asia_asia_co2 = asia_18 - asia_08;
+var asia_welt: number = asia_18 / welt_18 * 100;
+var asia_asia: number = (asia_18 / asia_08 - 1) * 100;
+var asia_asia_co2: number = asia_18 - asia_08;
 
 /* Rechnung Australia */
-var australia_welt = australia_18 / welt_18 * 100;
-var australia_australia = (australia_18 / australia_08 - 1) * 100;
-var australia_australia_co2 = australia_18 - australia_08;
+var australia_welt: number = australia_18 / welt_18 * 100;
+var australia_australia: number = (australia_18 / australia_08 - 1) * 100;
+var australia_australia_co2: number = australia_18 - australia_08;
 
 /* Ausgabe Africa */
 console.log('Die Esission von Afrika ist:' + africa_18 + 'kg CO2');
