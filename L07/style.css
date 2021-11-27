@@ -1,0 +1,61 @@
+body {
+    background-color:#000;
+    position: relative;
+}
+
+.drumPad {
+    position: absolute;
+        left: 50%;
+        transform: translate(-50%);
+}
+
+.pad {
+    position: relative;
+    width: 150px;
+    height: 150px;
+    border-radius: 5px;
+    margin: 5px;
+}
+
+#pad1 {
+    background-color:#447ADD;
+}
+
+#pad2 {
+    background-color:#447ADD;
+}
+
+#pad3 {
+    background-color:#447ADD;
+}
+
+#pad4 {
+    background-color: #E34393;
+}
+
+#pad5 {
+    background-color: #E34393;
+}
+
+#pad6 {
+    background-color: #E34393;
+}
+
+#pad7 {
+    background-color: #E34393;
+}
+
+#pad8 {
+    background-color: #CE8536;
+}
+
+#pad9 {
+    background-color: #CE8536;
+}
+
+#play {
+    position: absolute;
+        top: 117%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+}
