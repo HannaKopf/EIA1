@@ -13,17 +13,28 @@ window.addEventListener("load",function() {
         var laugh2:HTMLAudioElement = new Audio('assets/laugh-2.mp3');
 
         var beat:HTMLAudioElement []=[kick, hihat, snare, hihat];
+        var i = 0;
 
     /* Funktion Sounds abspielen*/
         function playSample (sound): void{
             sound.play();
         }
-
     /* Funktion Beat abspielen*/
-        function playBeat (beat): void {
-           setInterval(function(){ beat.play(); }, 3000);
-        }
-        //setInterval(function() {    // Anweisungen }, 500);
+        function playBeat() {
+            setInterval(function() {
+                beat[0].play ();
+            }, 3000);
+            setInterval(function() {
+                beat[1].play ();
+            }, 2000);
+            setInterval(function() {
+                beat[2].play ();
+            }, 1000);
+            setInterval(function() {
+                beat[3].play ();
+            }, 500);
+            }
+
     /* Event Button klick*/
         document.querySelector("#pad1").addEventListener("click", function() {playSample(kick);});
         document.querySelector("#pad2").addEventListener("click", function() {playSample(hihat);});
@@ -34,5 +45,5 @@ window.addEventListener("load",function() {
         document.querySelector("#pad7").addEventListener("click", function() {playSample(G);});
         document.querySelector("#pad8").addEventListener("click", function() {playSample(laugh1);});
         document.querySelector("#pad9").addEventListener("click", function() {playSample(laugh2);});
-        document.querySelector("#play").addEventListener("click", function() {playBeat;});
+        document.querySelector("#play").addEventListener("click", function() {playBeat(beat);});
 });
