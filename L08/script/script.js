@@ -10,6 +10,7 @@ window.addEventListener("load", function () {
     var laugh1 = new Audio('assets/laugh-1.mp3');
     var laugh2 = new Audio('assets/laugh-2.mp3');
     var sound = [kick, hihat, snare, A, C, F, G, laugh1, laugh2];
+    var loop = [sound[1], sound[2], sound[1], sound[3]];
     var p = "off";
     var beat;
     var remix;
@@ -17,20 +18,23 @@ window.addEventListener("load", function () {
     function playSample(sound) {
         sound.play();
     }
-    //Funktion Beat
+    // Funktion Beat
     function playBeat() {
-        for (var i = 0; i < 3; i++) {
-            playSample(sound[i]);
+        for (var i = 0; i < 4; i++) {
+            function timeoutID() { setTimeout(playSample, 1000); }
+            ;
+            playSample(loop[i]);
+            timeoutID;
         }
         ;
     }
     ;
     // Funktion Play geklickt
     function clickPlay() {
-        //Button wechselns
+        //Button wechselns und Beat abspielen/stoppen
         switch (p) {
             case "off":
-                beat = setInterval(playBeat, 300);
+                beat = setInterval(playBeat, 1000);
                 document.querySelector("#play").style.opacity = "0%";
                 document.querySelector("#pause").style.opacity = "100%";
                 p = "on";
@@ -46,7 +50,7 @@ window.addEventListener("load", function () {
     ;
     // Funktion Remix
     function clickRemix() {
-        remix = setInterval(playRemix, 300);
+        remix = setInterval(playRemix, 1000);
         function playRemix() {
             for (var a = 0; a < 4; a++) {
                 const b = Math.floor(Math.random() * 6);
@@ -59,7 +63,7 @@ window.addEventListener("load", function () {
     ;
     // Funktion Delete
     function clickDelete() {
-        sound.length = 0;
+        loop.length = 0;
     }
     ;
     // Event Button klick
@@ -76,17 +80,4 @@ window.addEventListener("load", function () {
     document.querySelector("#remix").addEventListener("click", function () { clickRemix(); });
     document.querySelector("#delete").addEventListener("click", function () { clickDelete(); });
 });
-/* Beat loop
-function beat (sound): void {
-    for(var i = 0; i=0;){
-        var a =0;
-        a++
-        if (a=3){
-            a=0
-        }
-        playSample(sound[a]);
-        alert(a)
-    }
-}
-*/
 //# sourceMappingURL=script.js.map
