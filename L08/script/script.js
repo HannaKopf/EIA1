@@ -10,23 +10,24 @@ window.addEventListener("load", function () {
     var laugh1 = new Audio('assets/laugh-1.mp3');
     var laugh2 = new Audio('assets/laugh-2.mp3');
     var sound = [kick, hihat, snare, A, C, F, G, laugh1, laugh2];
-    var loop = [sound[1], sound[2], sound[1], sound[3]];
+    var loop = [sound[0], sound[1], sound[2]];
     var p = "off";
-    var beat;
     var remix;
+    var i = 0;
+    var beat;
     // Funktion Sounds abspielen
     function playSample(sound) {
         sound.play();
     }
     // Funktion Beat
     function playBeat() {
-        for (var i = 0; i < 4; i++) {
-            function timeoutID() { setTimeout(playSample, 1000); }
-            ;
-            playSample(loop[i]);
-            timeoutID;
+        playSample(loop[i]);
+        if (i >= 2) {
+            i = 0;
         }
-        ;
+        else {
+            i++;
+        }
     }
     ;
     // Funktion Play geklickt
@@ -50,15 +51,10 @@ window.addEventListener("load", function () {
     ;
     // Funktion Remix
     function clickRemix() {
-        remix = setInterval(playRemix, 1000);
-        function playRemix() {
-            for (var a = 0; a < 4; a++) {
-                const b = Math.floor(Math.random() * 6);
-                playSample(sound[b]);
-            }
-            ;
+        clickDelete();
+        for (let i = 0; i < 8; i++) {
+            loop.push(sound[Math.floor((Math.random() * 7))]);
         }
-        ;
     }
     ;
     // Funktion Delete
