@@ -11,25 +11,25 @@ window.addEventListener("load",function() {
     var laugh2:HTMLAudioElement = new Audio('assets/laugh-2.mp3');
 
     var sound:HTMLAudioElement []= [kick, hihat, snare, A, C, F, G, laugh1, laugh2];
-    var loop:HTMLAudioElement []=[sound[1], sound[2], sound[1], sound[3]];
+    var loop:HTMLAudioElement []=[sound[0], sound[1], sound[2]];
 
     var p:string="off";
-    var beat:number;
     var remix:number;
+    var i:number=0;
+    var beat:number;
 
 // Funktion Sounds abspielen
     function playSample (sound): void{
         sound.play();
     }
 
-
 // Funktion Beat
-function playBeat() {
-    for (var i:number=0; i<4; i++){
-        function timeoutID() {setTimeout(playSample, 1000);};
-        playSample(loop[i]);
-        timeoutID;
-    };
+function playBeat():void {
+    playSample(loop[i]);
+    if (i >= 2) {
+            i = 0;
+        }
+    else { i++;}
 };
 
 
@@ -38,11 +38,11 @@ function playBeat() {
 
     //Button wechselns und Beat abspielen/stoppen
     switch (p) { 
-        case "off": beat=setInterval(playBeat, 1000);
+        case "off": beat= setInterval(playBeat, 1000);
                     document.querySelector("#play").style.opacity="0%";
                     document.querySelector("#pause").style.opacity="100%";
                     p="on"; break;
-        case "on":  clearInterval(beat)
+        case "on":  clearInterval(beat);
                     document.querySelector("#play").style.opacity="100%";
                     document.querySelector("#pause").style.opacity="0%";
                     p="off"; 
@@ -50,18 +50,13 @@ function playBeat() {
     }
 };
 
-
 // Funktion Remix
-    function clickRemix() {
-        remix=setInterval(playRemix, 1000);
-        function playRemix(){
-            for(var a:number=0; a<4; a++){
-                const b: number = Math.floor(Math.random() * 6);
-                playSample (sound[b]); 
-            };
-        };
-    };
-
+function clickRemix() {
+    clickDelete();
+    for (let i: number = 0; i < 8; i++) {
+        loop.push(sound[Math.floor((Math.random() * 7))]);
+    }
+};
 
 // Funktion Delete
     function clickDelete() {
