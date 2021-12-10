@@ -27,7 +27,7 @@ h1 {
 }
 
 /* To-Do Text eintragen*/
-.input {
+#input {
     position: relative;
     left: 10px;
     width: 300px;
@@ -45,7 +45,7 @@ h1 {
 }
 
 /* Aufgaben Liste*/
-.aufgaben {
+#aufgaben {
     position: relative;
     left: 10px;
     top: 0px;
@@ -64,11 +64,13 @@ ul li {
     padding: 12px 8px 12px 40px;
     font-size: 18px;
     transition: 0.2s;
+    background-color: rosybrown;
 }
 
 /* Abgehakte Aufgaben*/
 ul li.checked {
     text-decoration: line-through;
+    color: white;
   }
 
 /* Haken hinzufügen */
