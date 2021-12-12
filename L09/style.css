@@ -73,7 +73,12 @@ ul li.checked {
     color: white;
   }
 
-/* Haken hinzufügen */
+/*Haken anzeigen wenn man Aufgabe hoovert*/
+ul li:hover {
+    color: white;
+}
+
+/* Haken hinzufügen*/
 ul li.checked::before {
     content: '';
     position: absolute;
