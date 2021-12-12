@@ -39,12 +39,26 @@ window.addEventListener("load", function () {
             span.className = "close";
             span.appendChild(txt);
             neueAufgabe.appendChild(span);
+            span.classList.add("delete");
 
             for (i = 0; i < close.length; i++) {
                 close[i].onclick = function() {
                 var div = this.parentElement;
                 div.style.display = "none";
                 };
+            }
+            
+            // löschen durch klicken auf Lösch-Button
+            var loeschen: any = document.getElementsByClassName("delete");
+            for (i = 0; i < loeschen.length; i++) {
+                loeschen[i].onclick = function() {
+                    var div: any = this.parentElement;
+                    div.style.display = "none";
+                    //runter zählen
+                    counter = counter - 1;
+                    document.getElementById("zahl").innerHTML = "= " + counter;
+                };
+                document.getElementById("zahl").innerHTML = "= " + counter;
             }
         }
     }
@@ -67,55 +81,9 @@ window.addEventListener("load", function () {
         ev.target.classList.toggle("checked");
     });
 
-// Lösch-Button hinzufügen   
-    var aufgaben: any = document.getElementsByTagName("LI");
-    for (i = 0; i < aufgaben.length; i++) {
-      var span = document.createElement("SPAN");
-      var txt = document.createTextNode("\u00D7");
-      span.className = "delete";
-      span.appendChild(txt);
-      aufgaben[i].appendChild(span);
-    }
 
-// löschen durch klicken auf Lösch-Button
-    var loeschen: any = document.getElementsByClassName("delete");
-    for (i = 0; i < loeschen.length; i++) {
-        loeschen[i].onclick = function() {
-            var div: any = this.parentElement;
-            div.style.display = "none";
-            //runter zählen
-            counter = counter - 1;
-        };
-    }
 
 // Aufgaben zählen in Counter
     document.getElementById("zahl").innerHTML = "= " + counter;
+    console.log(counter);
 });
-
-
-
-
-
-
-/*
-// Lösch-Button hinzufügen   
-    var aufgaben: any = document.getElementsByTagName("LI");
-    for (i = 0; i < aufgaben.length; i++) {
-      var span = document.createElement("SPAN");
-      var txt = document.createTextNode("\u00D7");
-      span.className = "delete";
-      span.appendChild(txt);
-      aufgaben[i].appendChild(span);
-    }
-
-// löschen durch klicken auf Lösch-Button
-    var loeschen: any = document.getElementsByClassName("delete");
-    for (i = 0; i < loeschen.length; i++) {
-        loeschen[i].onclick = function() {
-            var div: any = this.parentElement;
-            div.style.display = "none";
-            //runter zählen
-            counter = counter - 1;
-        };
-    }
-*/
