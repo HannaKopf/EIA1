@@ -1,15 +1,12 @@
-// tslint:disable: typedef
-// tslint:disable: no-any
 window.addEventListener("load", function () {
 
 // Variablen
     var i: number = 0;
-    var counter: number = 0;
     // Liste Aufgaben auswählen
-    var liste: any = document.getElementById("aufgaben");
+    var liste: HTMLElement = document.getElementById("aufgaben");
 
 // Aufgabe hinzufügen
-    function hinzufuegenAufgabe() {
+    function hinzufuegenAufgabe(): void {
 
         // Wenn nichts eingegeben wird Aufforderung 
         if (!document.getElementById("input").value) {
@@ -20,22 +17,23 @@ window.addEventListener("load", function () {
             var neueAufgabe: HTMLLIElement = document.createElement("li");
         
             //Eingabe als Text für neue Aufgabe verwenden
-            var textAufgabe: any = (<HTMLInputElement>document.querySelector("#input")).value;
+            var textAufgabe: string = (<HTMLInputElement>document.querySelector("#input")).value;
             //neueAufgabe.innerHTML = textAufgabe;        
             neueAufgabe.innerHTML = textAufgabe;
 
             //neue Aufgabe in Liste Aufgaben hinzufügen
             liste.appendChild(neueAufgabe);
-            
-            //hoch zählen
-            counter = counter + 1;
 
+            // Counter hochzälen
+            var counter: number = liste.getElementsByTagName("li").length;
+            document.getElementById("zahl").innerHTML = "" + counter;
+            
             //Eingabefeld leeren
             document.getElementById("input").value = "";
             
             //Löschbutton hinzufügen
-            var span = document.createElement("SPAN");
-            var txt = document.createTextNode("\u00D7");
+            var span: HTMLElement = document.createElement("SPAN");
+            var txt : HTMLElement = document.createTextNode("\u00D7");
             span.className = "close";
             span.appendChild(txt);
             neueAufgabe.appendChild(span);
@@ -43,7 +41,7 @@ window.addEventListener("load", function () {
 
             for (i = 0; i < close.length; i++) {
                 close[i].onclick = function() {
-                var div = this.parentElement;
+                var div: HTMLElement = this.parentElement;
                 div.style.display = "none";
                 };
             }
@@ -52,13 +50,12 @@ window.addEventListener("load", function () {
             var loeschen: any = document.getElementsByClassName("delete");
             for (i = 0; i < loeschen.length; i++) {
                 loeschen[i].onclick = function() {
-                    var div: any = this.parentElement;
+                    var div: HTMLElement = this.parentElement;
                     div.style.display = "none";
-                    //runter zählen
+                    // Counter runterzählen
                     counter = counter - 1;
-                    document.getElementById("zahl").innerHTML = "= " + counter;
+                    document.getElementById("zahl").innerHTML = "" + counter;
                 };
-                document.getElementById("zahl").innerHTML = "= " + counter;
             }
         }
     }
@@ -76,14 +73,17 @@ window.addEventListener("load", function () {
         });
 
 // Aufgaben durch Klick abhaken
-    var list: any = document.querySelector("ul");
+    var list: HTMLUListElement = document.querySelector("ul");
     list.addEventListener("click", function(ev) {
         ev.target.classList.toggle("checked");
     });
 
+// Aufgaben zählen 
+    //var counter: number = liste.getElementsByTagName("li").length;
+    var erledigt: number = liste.getElementsByClassName("checked").length;
+    var offen: number = counter - erledigt;
 
-
-// Aufgaben zählen in Counter
-    document.getElementById("zahl").innerHTML = "= " + counter;
-    console.log(counter);
+// Counter ausgeben im HTML
+    document.getElementById("offen").innerHTML = "" + offen;
+    document.getElementById("erledigt").innerHTML = "" + erledigt;
 });

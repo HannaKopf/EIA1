@@ -1,9 +1,6 @@
-// tslint:disable: typedef
-// tslint:disable: no-any
 window.addEventListener("load", function () {
     // Variablen
     var i = 0;
-    var counter = 0;
     // Liste Aufgaben auswählen
     var liste = document.getElementById("aufgaben");
     // Aufgabe hinzufügen
@@ -21,8 +18,9 @@ window.addEventListener("load", function () {
             neueAufgabe.innerHTML = textAufgabe;
             //neue Aufgabe in Liste Aufgaben hinzufügen
             liste.appendChild(neueAufgabe);
-            //hoch zählen
-            counter = counter + 1;
+            // Counter hochzälen
+            var counter = liste.getElementsByTagName("li").length;
+            document.getElementById("zahl").innerHTML = "" + counter;
             //Eingabefeld leeren
             document.getElementById("input").value = "";
             //Löschbutton hinzufügen
@@ -44,11 +42,10 @@ window.addEventListener("load", function () {
                 loeschen[i].onclick = function () {
                     var div = this.parentElement;
                     div.style.display = "none";
-                    //runter zählen
+                    // Counter runterzählen
                     counter = counter - 1;
-                    document.getElementById("zahl").innerHTML = "= " + counter;
+                    document.getElementById("zahl").innerHTML = "" + counter;
                 };
-                document.getElementById("zahl").innerHTML = "= " + counter;
             }
         }
     }
@@ -67,8 +64,12 @@ window.addEventListener("load", function () {
     list.addEventListener("click", function (ev) {
         ev.target.classList.toggle("checked");
     });
-    // Aufgaben zählen in Counter
-    document.getElementById("zahl").innerHTML = "= " + counter;
-    console.log(counter);
+    // Aufgaben zählen 
+    //var counter: number = liste.getElementsByTagName("li").length;
+    var erledigt = liste.getElementsByClassName("checked").length;
+    var offen = counter - erledigt;
+    // Counter ausgeben im HTML
+    document.getElementById("offen").innerHTML = "" + offen;
+    document.getElementById("erledigt").innerHTML = "" + erledigt;
 });
 //# sourceMappingURL=script.js.map
