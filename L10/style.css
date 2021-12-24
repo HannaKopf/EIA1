@@ -67,7 +67,7 @@ ul li {
     background-color: rosybrown;
 }
 
-/* Abgehakte Aufgaben*/
+/* abgehakte Aufgaben*/
 ul li.checked {
     text-decoration: line-through;
     color: white;

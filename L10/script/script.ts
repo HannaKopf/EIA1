@@ -1,7 +1,7 @@
 declare var Artyom: any;
 
 window.addEventListener("load", function () {
-
+    
     //Variable Liste der Aufgaben
     var liste: HTMLUListElement = document.getElementById("aufgaben");
     
@@ -12,7 +12,7 @@ window.addEventListener("load", function () {
 
     //Eingabe als Text für neue Aufgabe verwenden
     var textAufgabe: string = (<HTMLInputElement>document.querySelector("#input")).value;
-
+    
     // eine neue Aufgabe hinzufügen
     function hinzufuegenAufgabe(textAufgabe: string): void {
         // Wenn nichts eingegeben wird Aufforderung 
@@ -22,7 +22,7 @@ window.addEventListener("load", function () {
         else {
             //neue Aufgabe als Listenelement erstellen
             var neueAufgabe: HTMLLIElement = document.createElement("li");
-                
+
             //Eingabe als Text für neue Aufgabe verwenden
             var textAufgabe: string = (<HTMLInputElement>document.querySelector("#input")).value;
 
@@ -31,10 +31,10 @@ window.addEventListener("load", function () {
 
             //neue Aufgabe in Liste Aufgaben hinzufügen
             liste.appendChild(neueAufgabe);
-
+            
             //neue Aufgabe bekommt Klasse offen
-            neueAufgabe.className = "offen";
-
+            neueAufgabe.classList.add ("offen");
+            
             //alle neuen Aufgaben zählen
             alle = alle + 1;
             document.getElementById ("alle").innerHTML = "" + alle;
@@ -45,7 +45,7 @@ window.addEventListener("load", function () {
 
             //Eingabefeld leeren
             document.getElementById("input").value = "";
-
+            
             //Haken hinzufügen
             var haken: HTMLElement = document.createElement ("div");
             var txt: HTMLElement = document.createTextNode("");
@@ -61,44 +61,34 @@ window.addEventListener("load", function () {
                 };
             }
 
-            // abhaken durch klicken auf Haken
-            var abhaken: any = document.getElementsByClassName("check");
-            for (i = 0; i < abhaken.length; i++) {
-                abhaken[i].onclick = function() {
-                    var div: HTMLElement = this.parentElement;
-                    div.className = "checked";
-                    // erledigte und offene Aufgaben zählen
-                    erledigt = erledigt + 1;
-                    document.getElementById ("erledigt").innerHTML = "" + erledigt;
-                    offen = offen - 1;
-                    document.getElementById ("offen").innerHTML = "" + offen;
-                };
-            }
-
-            /*abhaken und aufhaken durch klicken auf Haken
+            //abhaken und aufhaken durch klicken auf Haken
             var abhaken: any = document.getElementsByClassName("check");
             var aufgabe: HTMLLIElement = document.getElementsByName("li");
-            aufgabe.classList.add ("offen");
             for (i = 0; i < abhaken.length; i++) {
-                abhaken[i].onclick = function() {
-                    
-                    if (this.aufgabe.className == "offen") {
-                        var div: HTMLElement = this.parentElement;
-                        div.className = "checked";
-                        this.aufgabe.className = "checked";
-                        alert("check");
-                    }
-                    if (this.aufgabe.className == "checked") {
-                        var div: HTMLElement = this.parentElement;
+                abhaken[i].onclick = function(ev) {
+                    var div: HTMLElement = this.parentElement;
+                    if (div.classList == "checked") {
                         div.className = "offen";
-                        this.aufgabe.className = "offen";
+                        //offene hochzählen
+                        offen = offen + 1;
+                        document.getElementById ("offen").innerHTML = "" + offen;
+                        //erledigte runterzählen
+                        erledigt = erledigt - 1;
+                        document.getElementById ("erledigt").innerHTML = "" + erledigt;
+                    }
+                    else {
+                        div.className = "checked";
+                        //offene runterzählen
+                        offen = offen - 1;
+                        document.getElementById ("offen").innerHTML = "" + offen;
+                        //erledigte hochzählen
+                        erledigt = erledigt + 1;
+                        document.getElementById ("erledigt").innerHTML = "" + erledigt;
+
                     }
                 };
             }
-            */
             
-            
-
             //Löschbutton hinzufügen
             var loeschbutton: HTMLElement = document.createElement ("div");
             var txt: HTMLElement = document.createTextNode("\u00D7");
@@ -116,6 +106,7 @@ window.addEventListener("load", function () {
 
             // löschen durch klicken auf Lösch-Button
             var loeschen: any = document.getElementsByClassName("delete");
+            var div: HTMLElement = this.parentElement;
             for (i = 0; i < loeschen.length; i++) {
                 loeschen[i].onclick = function() {
                     var div: HTMLElement = this.parentElement;
@@ -123,11 +114,17 @@ window.addEventListener("load", function () {
                     // alle Aufgaben zählen
                     alle = alle - 1;
                     document.getElementById ("alle").innerHTML = "" + alle;
-                    // erledigte Aufgaben zählen
-                    erledigt = erledigt - 1;
-                    document.getElementById ("erledigt").innerHTML = "" + erledigt;
+                    if (div.classList == "checked") {
+                        //erledigte runterzählen
+                        erledigt = erledigt - 1;
+                        document.getElementById ("erledigt").innerHTML = "" + erledigt;
+                    }
+                    if (div.classList == "offen") {
+                        //erledigte runterzählen
+                        offen = offen - 1;
+                        document.getElementById ("offen").innerHTML = "" + offen;
+                    }
                 };
-                
             }
         }
     }
@@ -176,17 +173,31 @@ window.addEventListener("load", function () {
                };
            }
 
-           // abhaken durch klicken auf Haken
+           //abhaken und aufhaken durch klicken auf Haken
            var abhaken: any = document.getElementsByClassName("check");
+           var aufgabe: HTMLLIElement = document.getElementsByName("li");
            for (i = 0; i < abhaken.length; i++) {
-               abhaken[i].onclick = function() {
+               abhaken[i].onclick = function(ev) {
                    var div: HTMLElement = this.parentElement;
-                   div.className = "checked";
-                   // erledigte und offene Aufgaben zählen
-                   erledigt = erledigt + 1;
-                   document.getElementById ("erledigt").innerHTML = "" + erledigt;
-                   offen = offen - 1;
-                   document.getElementById ("offen").innerHTML = "" + offen;
+                   if (div.classList == "checked") {
+                       div.className = "offen";
+                       //offene hochzählen
+                       offen = offen + 1;
+                       document.getElementById ("offen").innerHTML = "" + offen;
+                       //erledigte runterzählen
+                       erledigt = erledigt - 1;
+                       document.getElementById ("erledigt").innerHTML = "" + erledigt;
+                   }
+                   else {
+                       div.className = "checked";
+                       //offene runterzählen
+                       offen = offen - 1;
+                       document.getElementById ("offen").innerHTML = "" + offen;
+                       //erledigte hochzählen
+                       erledigt = erledigt + 1;
+                       document.getElementById ("erledigt").innerHTML = "" + erledigt;
+
+                   }
                };
            }
 
@@ -207,6 +218,7 @@ window.addEventListener("load", function () {
 
            // löschen durch klicken auf Lösch-Button
            var loeschen: any = document.getElementsByClassName("delete");
+           var div: HTMLElement = this.parentElement;
            for (i = 0; i < loeschen.length; i++) {
                loeschen[i].onclick = function() {
                    var div: HTMLElement = this.parentElement;
@@ -214,11 +226,17 @@ window.addEventListener("load", function () {
                    // alle Aufgaben zählen
                    alle = alle - 1;
                    document.getElementById ("alle").innerHTML = "" + alle;
-                   // erledigte Aufgaben zählen
-                   erledigt = erledigt - 1;
-                   document.getElementById ("erledigt").innerHTML = "" + erledigt;
+                   if (div.classList == "checked") {
+                       //erledigte runterzählen
+                       erledigt = erledigt - 1;
+                       document.getElementById ("erledigt").innerHTML = "" + erledigt;
+                   }
+                   if (div.classList == "offen") {
+                       //erledigte runterzählen
+                       offen = offen - 1;
+                       document.getElementById ("offen").innerHTML = "" + offen;
+                   }
                };
-               
            }
        }
    });
@@ -251,7 +269,7 @@ window.addEventListener("load", function () {
     input.addEventListener("keydown", (event) => {
         // Number 13 is the "Enter" key on the keyboard
         if (event.keyCode == 13) {
-            hinzufuegenAufgabe();
+            hinzufuegenAufgabe(textAufgabe);
         }
     });
 
